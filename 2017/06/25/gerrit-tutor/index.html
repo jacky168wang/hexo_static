@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gerrit tutorial | JackyWang&#39;s Hexo Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1&amp;gt; Setup a git server1.1&amp;gt; download and install1$ $ sudo apt-get install git 1.2&amp;gt; create one user to be dedicated for git service1$ $ sudo adduser git 1.3&amp;gt; import users’ rsa_public_key to ‘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gerrit tutorial">
+<meta property="og:url" content="http://192.168.1.3/2017/06/25/gerrit-tutor/index.html">
+<meta property="og:site_name" content="JackyWang&#39;s Hexo Blog">
+<meta property="og:description" content="1&amp;gt; Setup a git server1.1&amp;gt; download and install1$ $ sudo apt-get install git 1.2&amp;gt; create one user to be dedicated for git service1$ $ sudo adduser git 1.3&amp;gt; import users’ rsa_public_key to ‘">
+<meta property="og:updated_time" content="2017-06-25T08:57:55.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gerrit tutorial">
+<meta name="twitter:description" content="1&amp;gt; Setup a git server1.1&amp;gt; download and install1$ $ sudo apt-get install git 1.2&amp;gt; create one user to be dedicated for git service1$ $ sudo adduser git 1.3&amp;gt; import users’ rsa_public_key to ‘">
+  
+    <link rel="alternate" href="/atom.xml" title="JackyWang&#39;s Hexo Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JackyWang&#39;s Hexo Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">telecommunication semiconductor development</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://192.168.1.3"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gerrit-tutor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/25/gerrit-tutor/" class="article-date">
+  <time datetime="2017-06-25T03:22:28.000Z" itemprop="datePublished">2017-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Gerrit tutorial
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-gt-Setup-a-git-server"><a href="#1-gt-Setup-a-git-server" class="headerlink" title="1&gt; Setup a git server"></a>1&gt; Setup a git server</h2><h3 id="1-1-gt-download-and-install"><a href="#1-1-gt-download-and-install" class="headerlink" title="1.1&gt; download and install"></a>1.1&gt; download and install</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ $ sudo apt-get install git</div></pre></td></tr></table></figure>
+<h3 id="1-2-gt-create-one-user-to-be-dedicated-for-git-service"><a href="#1-2-gt-create-one-user-to-be-dedicated-for-git-service" class="headerlink" title="1.2&gt; create one user to be dedicated for git service"></a>1.2&gt; create one user to be dedicated for git service</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ $ sudo adduser git</div></pre></td></tr></table></figure>
+<h3 id="1-3-gt-import-users’-rsa-public-key-to-‘authorized-keys’"><a href="#1-3-gt-import-users’-rsa-public-key-to-‘authorized-keys’" class="headerlink" title="1.3&gt; import users’ rsa_public_key to ‘authorized_keys’"></a>1.3&gt; import users’ rsa_public_key to ‘authorized_keys’</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ su git</div><div class="line">$ <span class="built_in">cd</span> ~ <span class="comment"># /home/git</span></div><div class="line">$ mkdir .ssh</div><div class="line">$ <span class="built_in">cd</span> .ssh</div><div class="line">$ touch authorized_keys</div></pre></td></tr></table></figure>
+<p>Notice: one ssh session (pair of server&amp;client) produce one ‘id_rsa.pub’.if the port number for one ssh session is changed, the key will change.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">user@user_PC:~$ ssh-keygen -t rsa -C <span class="string">'account_name'</span></div></pre></td></tr></table></figure></p>
+<p>try any way to copy file ‘id_rsa.pub’ to the server’s PC, then<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cat id_rsa.pub &gt;&gt; authorized_keys</div><div class="line">$ chmod 600 authorized_keys</div></pre></td></tr></table></figure></p>
+<h3 id="1-4-gt-create-a-dedicated-folder-to-save-all-repositories"><a href="#1-4-gt-create-a-dedicated-folder-to-save-all-repositories" class="headerlink" title="1.4&gt; create a dedicated folder to save all repositories"></a>1.4&gt; create a dedicated folder to save all repositories</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~</div><div class="line">$ git init --bare sample.git <span class="comment"># '--bare' means no 'work area'</span></div><div class="line">``` bash</div><div class="line"><span class="comment">#5&gt; forbidden user 'git' to login with the shell</span></div><div class="line">``` bash</div><div class="line">$ <span class="built_in">exit</span></div><div class="line">$ $ sudo vi /etc/passwd</div></pre></td></tr></table></figure>
+<p>change “git:x:1001:1001:,,,:/home/git:/bin/bash”<br>  into “git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell”</p>
+<h2 id="2-gt-install-‘jre’-as-a-must"><a href="#2-gt-install-‘jre’-as-a-must" class="headerlink" title="2&gt; install ‘jre’ as a must"></a>2&gt; install ‘jre’ as a must</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install default-jre</div></pre></td></tr></table></figure>
+<h2 id="3-gt-install-and-config-‘mysql’-if-MYSQL-‘Database-server’-is-to-be-used"><a href="#3-gt-install-and-config-‘mysql’-if-MYSQL-‘Database-server’-is-to-be-used" class="headerlink" title="3&gt; install and config ‘mysql’ if MYSQL ‘Database server’ is to be used"></a>3&gt; install and config ‘mysql’ if MYSQL ‘Database server’ is to be used</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install mysql-server <span class="comment"># mysql-client libmysqlclient-dev</span></div><div class="line">$ sudo netstat -tap | grep mysql</div><div class="line">$ sudo mysql -u root -p &gt; create database gerritdb; &gt; grant all on gerritdb.* to <span class="string">'gerrituser'</span>@<span class="string">'localhost'</span> identified by <span class="string">'gerritpass'</span>;</div></pre></td></tr></table></figure>
+<h2 id="4-gt-install-and-config-‘gerrit’-server"><a href="#4-gt-install-and-config-‘gerrit’-server" class="headerlink" title="4&gt; install and config ‘gerrit’ server"></a>4&gt; install and config ‘gerrit’ server</h2><h3 id="4-1-gt-download-the-latest-gerrit-package"><a href="#4-1-gt-download-the-latest-gerrit-package" class="headerlink" title="4.1&gt; download the latest gerrit package"></a>4.1&gt; download the latest gerrit package</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://gerrit-releases.storage.googleapis.com/gerrit-2.9.war</div><div class="line">wget http://www.bouncycastle.org/download/bcpkix-jdk15on-149.jar</div><div class="line">wget http://www.bouncycastle.org/download/bcprov-jdk15on-149.jar</div></pre></td></tr></table></figure>
+<h3 id="4-2-gt-install-gerrit-to-a-specified-folder"><a href="#4-2-gt-install-gerrit-to-a-specified-folder" class="headerlink" title="4.2&gt; install gerrit to a specified folder"></a>4.2&gt; install gerrit to a specified folder</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir /etc/gerrit</div><div class="line">$ sudo java -jar gerrit-2.9.war init -d /etc/gerrit</div></pre></td></tr></table></figure>
+<p>press ‘enter’ directly except the following 2 changes<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*** User Authentication</div><div class="line">Authentication method          [OPENID/?]: http</div><div class="line">*** HTTP Daemon</div><div class="line">Behind reverse proxy           [y/N]? y</div></pre></td></tr></table></figure></p>
+<p>At last, the install process start the ‘gerrit’ thread, press ‘Ctrl+C’ to abort webpage addressing<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo cp bcpkix-jdk15on-149.jar /etc/gerrit/lib/</div><div class="line">$ sudo cp bcprov-jdk15on-149.jar /etc/gerrit/lib/</div></pre></td></tr></table></figure></p>
+<h3 id="4-3-gt-confirm-the-port-number-which-your-specified"><a href="#4-3-gt-confirm-the-port-number-which-your-specified" class="headerlink" title="4.3&gt; confirm the port number which your specified"></a>4.3&gt; confirm the port number which your specified</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo netstat -lnp | grep Gerrit</div><div class="line">tcp6       0      0 :::29418        :::*          LISTEN      7370/GerritCodeRevi</div><div class="line">tcp6       0      0 127.0.0.1:8081  :::*          LISTEN      7370/GerritCodeRevi</div></pre></td></tr></table></figure>
+<p>CONFIRM: configure gerrit per your requrements<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/gerrit/etc/gerrit.config</div><div class="line">[gerrit]</div><div class="line">	basePath = /home/git</div><div class="line">	<span class="comment"># replace the following with http://YourServerIP:GerritPort</span></div><div class="line">	canonicalWebUrl = http://192.168.1.3:8080</div><div class="line">[database]</div><div class="line">	<span class="built_in">type</span> = h2</div><div class="line">	database = db/ReviewDB</div><div class="line">[index]</div><div class="line">	<span class="built_in">type</span> = LUCENE</div><div class="line">[auth]</div><div class="line">	<span class="comment"># not the default/OPENID</span></div><div class="line">	<span class="built_in">type</span> = HTTP</div><div class="line">	<span class="comment"># a fix for logout, to be verified</span></div><div class="line">	logoutUrl = http://aa:aa@10.10.68.224</div><div class="line">[sendemail]</div><div class="line">	smtpServer = smtp.sina.com</div><div class="line">	smtpUser = kenwj</div><div class="line">[container]</div><div class="line">	user = root</div><div class="line">	javaHome = /usr/lib/jvm/java-7-openjdk-i386/jre</div><div class="line">[sshd]</div><div class="line">	listenAddress = *:29418</div><div class="line">[httpd]</div><div class="line">	<span class="comment"># corresponding to apache2-&gt;gerrit.conf-&gt;ProxyPass</span></div><div class="line">	listenUrl = proxy-http://127.0.0.1:8081/</div><div class="line">[cache]</div><div class="line">	directory = cache</div></pre></td></tr></table></figure></p>
+<h3 id="4-4-gt-restart-“gerrit”-as-the-config-has-changed"><a href="#4-4-gt-restart-“gerrit”-as-the-config-has-changed" class="headerlink" title="4.4&gt; restart “gerrit” as the config has changed"></a>4.4&gt; restart “gerrit” as the config has changed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo /etc/gerrit/bin/gerrit.sh restart</div></pre></td></tr></table></figure>
+<h3 id="4-5-gt-add-‘gerrit’-as-a-daemon-auto-start-service"><a href="#4-5-gt-add-‘gerrit’-as-a-daemon-auto-start-service" class="headerlink" title="4.5&gt; add ‘gerrit’ as a daemon/auto-start service"></a>4.5&gt; add ‘gerrit’ as a daemon/auto-start service</h3><p>NOTICE: add “GERRIT_SITE=/etc/gerrit” in “/etc/gerrit/bin/gerrit.sh” at first<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo <span class="built_in">echo</span> <span class="string">"GERRIT_SITE=/etc/gerrit"</span> &gt;&gt; /etc/gerrit/bin/gerrit.sh</div><div class="line">$ sudo cp /etc/gerrit/bin/gerrit.sh /etc/init.d/gerrit</div><div class="line">$ sudo update-rc.d gerrit defaults 21</div><div class="line">$ sudo service gerrit restart</div></pre></td></tr></table></figure></p>
+<p>CONFIRM: restart your PC, after boot up, check whether ‘gerrit’ is up or not<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ service gerrit status</div></pre></td></tr></table></figure></p>
+<h2 id="5-gt-install-and-config-‘apache2’-for-gerrit-http-proxy"><a href="#5-gt-install-and-config-‘apache2’-for-gerrit-http-proxy" class="headerlink" title="5&gt; install and config ‘apache2’ for gerrit http proxy"></a>5&gt; install and config ‘apache2’ for gerrit http proxy</h2><h3 id="5-1-gt-install-‘apache2’-as-a-http-server"><a href="#5-1-gt-install-‘apache2’-as-a-http-server" class="headerlink" title="5.1&gt; install ‘apache2’ as a http server"></a>5.1&gt; install ‘apache2’ as a http server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install apache2 apache2-utils</div></pre></td></tr></table></figure>
+<p>NOTICE: then the latest version will be installed automaticly, configurations to do may be different per specific version.<br>HELP: check the version info<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ /usr/sbin/apache2 -v</div><div class="line">Server version: Apache/2.4.7 (Ubuntu)</div><div class="line">Server built:   May  9 2017 16:13:38</div></pre></td></tr></table></figure></p>
+<h3 id="5-2-gt-create-a-file-to-save-users’-passwd-for-your-gerrit-site"><a href="#5-2-gt-create-a-file-to-save-users’-passwd-for-your-gerrit-site" class="headerlink" title="5.2&gt; create a file to save users’ passwd for your gerrit site"></a>5.2&gt; create a file to save users’ passwd for your gerrit site</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo touch /etc/apache2/htpasswd_gerrit</div><div class="line">$ sudo htpasswd -b /etc/apache2/htpasswd_gerrit admin admin</div></pre></td></tr></table></figure>
+<h3 id="5-3-gt-read-the-global-config-file-and-understand-the-structure"><a href="#5-3-gt-read-the-global-config-file-and-understand-the-structure" class="headerlink" title="5.3&gt; read the global config file and understand the structure"></a>5.3&gt; read the global config file and understand the structure</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<h3 id="5-4-gt-add-the-http-port-number-for-your-gerrit"><a href="#5-4-gt-add-the-http-port-number-for-your-gerrit" class="headerlink" title="5.4&gt; add the http port number for your gerrit"></a>5.4&gt; add the http port number for your gerrit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"Listen 8080"</span> &gt;&gt; /etc/apache2/ports.conf</div></pre></td></tr></table></figure>
+<h3 id="5-5-gt-create-a-config-for-your-gerrit-site-similar-to-the-following"><a href="#5-5-gt-create-a-config-for-your-gerrit-site-similar-to-the-following" class="headerlink" title="5.5&gt; create a config for your gerrit site, similar to the following"></a>5.5&gt; create a config for your gerrit site, similar to the following</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">$ sudo vi /etc/apache2/sites-enabled/gerrit.conf</div><div class="line">&lt;VirtualHost 192.168.1.3:8080&gt; <span class="comment"># the input to this http server</span></div><div class="line">    ServerName Jacky_Gerrit</div><div class="line">    ProxyRequests Off</div><div class="line">    ProxyVia Off</div><div class="line">    ProxyPreserveHost On</div><div class="line"></div><div class="line">    &lt;Proxy *&gt;</div><div class="line">          Order deny,allow</div><div class="line">          Allow from all</div><div class="line">    &lt;/Proxy&gt;</div><div class="line"></div><div class="line">    &lt;Location /login/&gt; <span class="comment"># the first page</span></div><div class="line">      AuthType Basic</div><div class="line">      AuthName <span class="string">"Gerrit Code Review"</span></div><div class="line">      Require valid-user</div><div class="line">      AuthBasicProvider file</div><div class="line">      AuthUserFile /etc/apache2/htpasswd_gerrit <span class="comment"># which you just specified</span></div><div class="line">    &lt;/Location&gt;</div><div class="line"></div><div class="line">    AllowEncodedSlashes On</div><div class="line">    ProxyPass / http://127.0.0.1:8081/ <span class="comment"># the output from this http server </span></div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
+<p>It means that, if a user/client input <a href="http://192.168.1.3:8080">http://192.168.1.3:8080</a> on his webpage, the server(192.168.1.3) will address 127.0.0.1:8081 as a proxy.</p>
+<h3 id="5-6-gt-restart-‘apache2’-daemon-as-the-config-has-changed"><a href="#5-6-gt-restart-‘apache2’-daemon-as-the-config-has-changed" class="headerlink" title="5.6&gt; restart ‘apache2’ daemon as the config has changed"></a>5.6&gt; restart ‘apache2’ daemon as the config has changed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo /etc/init.d/apache2 restart</div></pre></td></tr></table></figure>
+<p>HELP: if apache2 cannot start, read ‘/var/log/apache2/error.log’</p>
+<h3 id="5-7-gt-possible-errors-when-using-lower-version"><a href="#5-7-gt-possible-errors-when-using-lower-version" class="headerlink" title="5.7&gt; possible errors when using lower version"></a>5.7&gt; possible errors when using lower version</h3><p>5.7.1&gt; issue: Syntax error /etc/apache2/apache2.conf:Invalid command ‘ProxyPass’ …<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo <span class="built_in">cd</span> /etc/apache2/mods-enabled</div><div class="line">$ sudo ln -s /etc/apache2/mods-available/proxy.conf</div><div class="line">$ sudo ln -s /etc/apache2/mods-available/proxy.load</div><div class="line">$ sudo ln -s /etc/apache2/mods-available/proxy_http.load</div></pre></td></tr></table></figure></p>
+<p>5.7.2&gt; issue: No apache MPM package installed<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install apache2-mpm-worker</div></pre></td></tr></table></figure></p>
+<p>5.7.3&gt; issue: apache2: Could not reliably determine the server’s fully qualified domain name<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"ServerName localhost"</span> &gt;&gt; /etc/apache2/x.conf</div></pre></td></tr></table></figure></p>
+<p>5.7.4&gt; issue: apache2: Invalid command ‘ProxyRequests’<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo a2enmod proxy</div></pre></td></tr></table></figure></p>
+<h1 id="—-maintain-gerrit-as-an-‘admin’"><a href="#—-maintain-gerrit-as-an-‘admin’" class="headerlink" title="—- maintain gerrit as an ‘admin’"></a>—- maintain gerrit as an ‘admin’</h1><h1 id="auth"><a href="#auth" class="headerlink" title="auth"></a>auth</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"管理员"</span> -f ~/.ssh/gerrit_admin</div><div class="line">$ cat ~/.ssh/gerrit_admin.pub</div><div class="line">webpage: <span class="string">"Anonymous Coward (1000000)"</span>, <span class="string">'Settings'</span>, <span class="string">"SSH Public Keys"</span>, Add Key</div><div class="line">$ ssh -p 29418 -i ~/.ssh/gerrit_admin 192.168.1.3 -l admin</div></pre></td></tr></table></figure>
+<h1 id="all-is-set-if-the-following-occurs"><a href="#all-is-set-if-the-following-occurs" class="headerlink" title="all is set if the following occurs"></a>all is set if the following occurs</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">****    Welcome to Gerrit Code Review    ****</div><div class="line">Hi admin, you have successfully connected over SSH.</div><div class="line">Unfortunately, interactive shells are disabled.</div><div class="line">To <span class="built_in">clone</span> a hosted Git repository, use:</div><div class="line">git <span class="built_in">clone</span> ssh://admin@192.168.1.3:29418/REPOSITORY_NAME.git</div><div class="line">Connection to 192.168.1.101 closed</div></pre></td></tr></table></figure>
+<h1 id="otherwise-“rm-rf-ssh-known-hosts”-then-try-again"><a href="#otherwise-“rm-rf-ssh-known-hosts”-then-try-again" class="headerlink" title="otherwise, “rm -rf ~/.ssh/known_hosts” then try again"></a>otherwise, “rm -rf ~/.ssh/known_hosts” then try again</h1><h1 id="create-one-alias-for-this-connection"><a href="#create-one-alias-for-this-connection" class="headerlink" title="create one alias for this connection"></a>create one alias for this connection</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ vi ~/.ssh/config</div><div class="line">Host lgadmin</div><div class="line">    HostName 192.168.1.3</div><div class="line">    User admin</div><div class="line">    Port 29418</div><div class="line">    IdentityFile ~/.ssh/gerrit_admin</div></pre></td></tr></table></figure>
+<h1 id="verify-your-alias-by-“ssh-lgadmin”"><a href="#verify-your-alias-by-“ssh-lgadmin”" class="headerlink" title="verify your alias by “ssh lgadmin”"></a>verify your alias by “ssh lgadmin”</h1><p>#通过gerrit登录数据库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit gsql</div><div class="line">fatal: admin does not have <span class="string">"Access Database"</span> capability.</div></pre></td></tr></table></figure></p>
+<h1 id="version-after-2-12-only-can-enable-this-through-webUI"><a href="#version-after-2-12-only-can-enable-this-through-webUI" class="headerlink" title="version after 2.12, only can enable this through webUI"></a>version after 2.12, only can enable this through webUI</h1><p>Project -&gt; All-Projects -&gt; Edit -&gt; Global Capabilities -&gt; add permission</p>
+<h1 id="older-version-创建-修改-All-Projects的refs-meta-config-project-config"><a href="#older-version-创建-修改-All-Projects的refs-meta-config-project-config" class="headerlink" title="older version: 创建(修改)All-Projects的refs/meta/config/project.config"></a>older version: 创建(修改)All-Projects的refs/meta/config/project.config</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/gerrit/git/All-Projects/refs/meta/config/project.config</div><div class="line">[capability]</div><div class="line">       accessDatabase = group Administrators</div></pre></td></tr></table></figure>
+<p>#查看可见的群组<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p 29418 admin@localhost gerrit ls-groups</div></pre></td></tr></table></figure></p>
+<p>#创建新的项目,–owner需要的群组必须要在Gerrit已经定义好的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p 29418 admin@localhost gerrit create-project <span class="string">"test/helloworld"</span> --description <span class="string">"'Tools used by build system'"</span> --owner <span class="string">"user/admin"</span> --parent <span class="string">"All-Projects"</span></div></pre></td></tr></table></figure></p>
+<p>#修改项目配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p 29418 admin@localhost gerrit <span class="built_in">set</span>-project <span class="string">"repo_name"</span> --project-state ACTIVE --submit-type FAST_FORWARD_ONLY</div></pre></td></tr></table></figure></p>
+<p>#设置继承项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p 29418 admin@localhost gerrit <span class="built_in">set</span>-project-parent <span class="string">"repo_name"</span> --parent <span class="string">"parent_repo"</span></div></pre></td></tr></table></figure></p>
+<p>#自动审查打分<br><code>bash
+$ ssh -p 29418 admin@localhost gerrit review {COMMITID | CHANGEID,PATCHSET} --verified +1 --code-review +1 --message &quot;review from ssh&quot;
+$ cat ~/.ssh/user1.pub | ssh ha gerrit create-account --email user1@163.com --full-name 张三 --ssh-key</code> bash</p>
+<h1 id="Gerrit默认的项目权限"><a href="#Gerrit默认的项目权限" class="headerlink" title="Gerrit默认的项目权限"></a>Gerrit默认的项目权限</h1><p>默认: 项目的master分支只有administrators和Project Owners可以不经代码审核直接推送,但允许其他用户向master分支推送changes接受评审.<br>期望: Registered Users组用户不能向master推送changes,而只能向devel分支推送changes。devel分支的权限默认即可。项目只有两个常设分支master和devel,日常开发只在devel分支上,只有管理员才能touch master分支.<br>修改设置: Project-&gt;list(选定项目)-&gt;Access-&gt;Edit-&gt;Add Reference, reference的名字为:refs/for/refs/heads/master,然后添加push权限,添加组”Registered Users”,选择对应的push权限为deny,同时勾选Exclusive，覆盖掉该ref继承和被通配符所涵盖的权限.</p>
+<h1 id="Code-Review和submit"><a href="#Code-Review和submit" class="headerlink" title="Code Review和submit"></a>Code Review和submit</h1><p>默认: 只给Registered Users组用户Code View -1分到1分的权限,这样Registered Users组用户就无法独立完成代码审核, 而且该组用户没有submit的权限,无法合并补丁到仓库中.<br>期望: 因为developer都集中在Registered Users中,包括资深的developer,所以Code View权限需要提高.同时需要添加submit权限.<br>修改设置: Project-&gt;list(选定项目)-&gt;Access-&gt;Edit-&gt;Add Reference,reference的名字为:refs/heads/*,然后添加Label Code-Review,添加组”Registered Users”,将其权限调整为-2~2.然后对Submit权限添加组”Registered Users”并设为ALLOW.</p>
+<h1 id="sandbox分支"><a href="#sandbox分支" class="headerlink" title="sandbox分支"></a>sandbox分支</h1><p>即个人分支,是十分有必要的,在开发成果还没有达到可以参加评审之前,用户可以在个人分支暂存自己的代码<br>修改设置: 添加引用refs/heads/sandbox/${username}/*,选择权限Create Reference和push,”Registered Users”组权限皆为ALLOW</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<<<<<<< HEAD
+      <a data-url="http://192.168.1.3/2017/06/25/gerrit-tutor/" data-id="cj4eea97q00011uxtnt4cflfb" class="article-share-link">Share</a>
+=======
+      <a data-url="http://192.168.1.3/2017/06/25/gerrit-tutor/" data-id="cj4eax4e70001i2xt4yxr9n75" class="article-share-link">Share</a>
+>>>>>>> 35e7e2e0b62146d10f211033bdbc2f5c0f299b13
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/25/gerrit-mngt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Gerrit mangement
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/25/git-tutor/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git tutorial</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/linux-daemon/">linux-daemon</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/gerrit-mngt/">Gerrit mangement</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/gerrit-tutor/">Gerrit tutorial</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/git-tutor/">Git tutorial</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 JackyWang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gerrit mangement | JackyWang&#39;s Hexo Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1&amp;gt; maintain gerrit as an ‘admin’1.1&amp;gt; auth123$ ssh-keygen -t rsa -C &quot;管理员&quot; -f ~/.ssh/gerrit_admin$ cat ~/.ssh/gerrit_admin.pub  # copy the public key Visit your localgerrit webpage, click “Anonymo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gerrit mangement">
+<meta property="og:url" content="http://192.168.1.3/2017/06/25/gerrit-mngt/index.html">
+<meta property="og:site_name" content="JackyWang&#39;s Hexo Blog">
+<meta property="og:description" content="1&amp;gt; maintain gerrit as an ‘admin’1.1&amp;gt; auth123$ ssh-keygen -t rsa -C &quot;管理员&quot; -f ~/.ssh/gerrit_admin$ cat ~/.ssh/gerrit_admin.pub  # copy the public key Visit your localgerrit webpage, click “Anonymo">
+<meta property="og:updated_time" content="2017-06-25T08:57:31.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gerrit mangement">
+<meta name="twitter:description" content="1&amp;gt; maintain gerrit as an ‘admin’1.1&amp;gt; auth123$ ssh-keygen -t rsa -C &quot;管理员&quot; -f ~/.ssh/gerrit_admin$ cat ~/.ssh/gerrit_admin.pub  # copy the public key Visit your localgerrit webpage, click “Anonymo">
+  
+    <link rel="alternate" href="/atom.xml" title="JackyWang&#39;s Hexo Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JackyWang&#39;s Hexo Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">telecommunication semiconductor development</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://192.168.1.3"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gerrit-mngt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/25/gerrit-mngt/" class="article-date">
+  <time datetime="2017-06-25T03:22:28.000Z" itemprop="datePublished">2017-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Gerrit mangement
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-gt-maintain-gerrit-as-an-‘admin’"><a href="#1-gt-maintain-gerrit-as-an-‘admin’" class="headerlink" title="1&gt; maintain gerrit as an ‘admin’"></a>1&gt; maintain gerrit as an ‘admin’</h2><h3 id="1-1-gt-auth"><a href="#1-1-gt-auth" class="headerlink" title="1.1&gt; auth"></a>1.1&gt; auth</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"管理员"</span> -f ~/.ssh/gerrit_admin</div><div class="line">$ cat ~/.ssh/gerrit_admin.pub</div><div class="line">  <span class="comment"># copy the public key</span></div></pre></td></tr></table></figure>
+<p>Visit your <a href="http://192.168.1.3:8080">localgerrit</a> webpage, click “Anonymous Coward (1000000)”-&gt;”Settings”-&gt;”SSH Public Keys”, paste the above public key, then click “Add Key”.</p>
+<h3 id="1-2-gt-verify-the-connection"><a href="#1-2-gt-verify-the-connection" class="headerlink" title="1.2&gt; verify the connection"></a>1.2&gt; verify the connection</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ssh -p 29418 -i ~/.ssh/gerrit_admin 192.168.1.3 -l admin</div><div class="line">  ****    Welcome to Gerrit Code Review    ****</div><div class="line">  Hi admin, you have successfully connected over SSH.</div><div class="line">  Unfortunately, interactive shells are disabled.</div><div class="line">  To <span class="built_in">clone</span> a hosted Git repository, use:</div><div class="line">  git <span class="built_in">clone</span> ssh://admin@192.168.1.3:29418/REPOSITORY_NAME.git</div><div class="line">  Connection to 192.168.1.101 closed</div></pre></td></tr></table></figure>
+<p>If console output is same as the above, all is set! Otherwise, execute the below and then try again.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rm -rf ~/.ssh/known_hosts</div></pre></td></tr></table></figure></p>
+<h3 id="1-3-gt-create-one-alias-for-this-connection"><a href="#1-3-gt-create-one-alias-for-this-connection" class="headerlink" title="1.3&gt; create one alias for this connection"></a>1.3&gt; create one alias for this connection</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ vi ~/.ssh/config</div><div class="line">Host lgadmin</div><div class="line">    HostName 192.168.1.3</div><div class="line">    User admin</div><div class="line">    Port 29418</div><div class="line">    IdentityFile ~/.ssh/gerrit_admin</div></pre></td></tr></table></figure>
+<h3 id="1-4-gt-Verify-your-alias"><a href="#1-4-gt-Verify-your-alias" class="headerlink" title="1.4&gt; Verify your alias"></a>1.4&gt; Verify your alias</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin</div><div class="line">  ****    Welcome to Gerrit Code Review    ****</div><div class="line">  Hi admin, you have successfully connected over SSH.</div><div class="line">  Unfortunately, interactive shells are disabled.</div><div class="line">  To <span class="built_in">clone</span> a hosted Git repository, use:</div><div class="line">  git <span class="built_in">clone</span> ssh://admin@192.168.1.3:29418/REPOSITORY_NAME.git</div><div class="line">  Connection to 192.168.1.3 closed</div></pre></td></tr></table></figure>
+<p>The console output should be same as using 1.2&gt;</p>
+<h2 id="2-gt-management-the-database"><a href="#2-gt-management-the-database" class="headerlink" title="2&gt; management the database"></a>2&gt; management the database</h2><h3 id="2-1-gt-login-the-database"><a href="#2-1-gt-login-the-database" class="headerlink" title="2.1&gt; login the database"></a>2.1&gt; login the database</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit gsql</div><div class="line">fatal: admin does not have <span class="string">"Access Database"</span> capability.</div></pre></td></tr></table></figure>
+<p>Fix for the version later than 2.12: It only can be fixed by enable database access through the WebUI!<br>login <a href="http://192.168.1.3:8080">localgerrit</a>, click “Project”-&gt;”All-Projects”-&gt;”Edit”-&gt;”Global Capabilities”-&gt;”add permission”<br>Fix for the version like 2.0:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ vi /etc/gerrit/git/All-Projects/refs/meta/config/project.config</div><div class="line">[capability]</div><div class="line">       accessDatabase = group Administrators</div></pre></td></tr></table></figure></p>
+<h2 id="3-gt-manage-groups"><a href="#3-gt-manage-groups" class="headerlink" title="3&gt; manage groups"></a>3&gt; manage groups</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit ls-groups</div></pre></td></tr></table></figure>
+<h2 id="4-gt-manage-projects"><a href="#4-gt-manage-projects" class="headerlink" title="4&gt; manage projects"></a>4&gt; manage projects</h2><h3 id="4-1-gt-create-one-new-project"><a href="#4-1-gt-create-one-new-project" class="headerlink" title="4.1&gt; create one new project"></a>4.1&gt; create one new project</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit create-project <span class="string">"test/helloworld"</span> --description <span class="string">"'Tools used by build system'"</span> --owner <span class="string">"user/admin"</span> --parent <span class="string">"All-Projects"</span></div></pre></td></tr></table></figure>
+<h3 id="4-2-gt-modify-configurations-for-one-project"><a href="#4-2-gt-modify-configurations-for-one-project" class="headerlink" title="4.2&gt; modify configurations for one project"></a>4.2&gt; modify configurations for one project</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit <span class="built_in">set</span>-project <span class="string">"repo_name"</span> --project-state ACTIVE --submit-type FAST_FORWARD_ONLY</div></pre></td></tr></table></figure>
+<h3 id="4-3-gt-设置继承项目"><a href="#4-3-gt-设置继承项目" class="headerlink" title="4.3&gt; 设置继承项目"></a>4.3&gt; 设置继承项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit <span class="built_in">set</span>-project-parent <span class="string">"repo_name"</span> --parent <span class="string">"parent_repo"</span></div></pre></td></tr></table></figure>
+<h3 id="4-4-gt-自动审查打分"><a href="#4-4-gt-自动审查打分" class="headerlink" title="4.4&gt; 自动审查打分"></a>4.4&gt; 自动审查打分</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh lgadmin gerrit review &#123;COMMITID | CHANGEID,PATCHSET&#125; --verified +1 --code-review +1 --message <span class="string">"review from ssh"</span></div><div class="line">$ cat ~/.ssh/user1.pub | ssh ha gerrit create-account --email user1@163.com --full-name 张三 --ssh-key</div></pre></td></tr></table></figure>
+<h3 id="4-5-gt-修改默认的项目权限"><a href="#4-5-gt-修改默认的项目权限" class="headerlink" title="4.5&gt; 修改默认的项目权限"></a>4.5&gt; 修改默认的项目权限</h3><p>默认: 项目的master分支只有administrators和Project Owners可以不经代码审核直接推送,但允许其他用户向master分支推送changes接受评审.<br>期望: Registered Users组用户不能向master推送changes,而只能向devel分支推送changes。devel分支的权限默认即可。项目只有两个常设分支master和devel,日常开发只在devel分支上,只有管理员才能touch master分支.<br>修改设置: Project-&gt;list(选定项目)-&gt;Access-&gt;Edit-&gt;Add Reference, reference的名字为:refs/for/refs/heads/master,然后添加push权限,添加组”Registered Users”,选择对应的push权限为deny,同时勾选Exclusive，覆盖掉该ref继承和被通配符所涵盖的权限.</p>
+<h3 id="4-6-gt-修改Code-Review和submit的权限"><a href="#4-6-gt-修改Code-Review和submit的权限" class="headerlink" title="4.6&gt; 修改Code Review和submit的权限"></a>4.6&gt; 修改Code Review和submit的权限</h3><p>默认: 只给Registered Users组用户Code View -1分到1分的权限,这样Registered Users组用户就无法独立完成代码审核, 而且该组用户没有submit的权限,无法合并补丁到仓库中.<br>期望: 因为developer都集中在Registered Users中,包括资深的developer,所以Code View权限需要提高.同时需要添加submit权限.<br>修改设置: Project-&gt;list(选定项目)-&gt;Access-&gt;Edit-&gt;Add Reference,reference的名字为:refs/heads/*,然后添加Label Code-Review,添加组”Registered Users”,将其权限调整为-2~2.然后对Submit权限添加组”Registered Users”并设为ALLOW.</p>
+<h3 id="4-7-gt-允许个人创建和维护sandbox分支"><a href="#4-7-gt-允许个人创建和维护sandbox分支" class="headerlink" title="4.7&gt; 允许个人创建和维护sandbox分支"></a>4.7&gt; 允许个人创建和维护sandbox分支</h3><p>即个人分支,是十分有必要的,在开发成果还没有达到可以参加评审之前,用户可以在个人分支暂存自己的代码<br>修改设置: 添加引用refs/heads/sandbox/${username}/*,选择权限Create Reference和push,”Registered Users”组权限皆为ALLOW</p>
+
+      
+    </div>
+    <footer class="article-footer">
+<<<<<<< HEAD
+      <a data-url="http://192.168.1.3/2017/06/25/gerrit-mngt/" data-id="cj4eea97a00001uxt04pev4n7" class="article-share-link">Share</a>
+=======
+      <a data-url="http://192.168.1.3/2017/06/25/gerrit-mngt/" data-id="cj4eax4dt0000i2xtqpc6oa54" class="article-share-link">Share</a>
+>>>>>>> 35e7e2e0b62146d10f211033bdbc2f5c0f299b13
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/25/linux-daemon/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux-daemon
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/25/gerrit-tutor/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Gerrit tutorial</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/linux-daemon/">linux-daemon</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/gerrit-mngt/">Gerrit mangement</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/gerrit-tutor/">Gerrit tutorial</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/git-tutor/">Git tutorial</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 JackyWang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
