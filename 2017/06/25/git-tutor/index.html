@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git tutorial | JackyWang&#39;s Hexo Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1&amp;gt; Overview‘git’ is a distribution system to maintain source codes. It’s veriy special and smart as “GIT TRACKS CHANGES RATHER THAN FILES”. It’s designed based on the following framework:“working a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git tutorial">
+<meta property="og:url" content="http://192.168.1.3/2017/06/25/git-tutor/index.html">
+<meta property="og:site_name" content="JackyWang&#39;s Hexo Blog">
+<meta property="og:description" content="1&amp;gt; Overview‘git’ is a distribution system to maintain source codes. It’s veriy special and smart as “GIT TRACKS CHANGES RATHER THAN FILES”. It’s designed based on the following framework:“working a">
+<meta property="og:updated_time" content="2017-06-25T07:36:49.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git tutorial">
+<meta name="twitter:description" content="1&amp;gt; Overview‘git’ is a distribution system to maintain source codes. It’s veriy special and smart as “GIT TRACKS CHANGES RATHER THAN FILES”. It’s designed based on the following framework:“working a">
+  
+    <link rel="alternate" href="/atom.xml" title="JackyWang&#39;s Hexo Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">JackyWang&#39;s Hexo Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">telecommunication semiconductor development</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://192.168.1.3"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-git-tutor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/25/git-tutor/" class="article-date">
+  <time datetime="2017-06-25T02:57:47.000Z" itemprop="datePublished">2017-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git tutorial
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-gt-Overview"><a href="#1-gt-Overview" class="headerlink" title="1&gt; Overview"></a>1&gt; Overview</h2><p>‘git’ is a distribution system to maintain source codes. It’s veriy special and smart as “GIT TRACKS CHANGES RATHER THAN FILES”. It’s designed based on the following framework:<br>“working area” – git add –&gt; “stage buffer” – git commit –&gt; “local repo.branch” – git push –&gt; “remote repo.branch”</p>
+<h2 id="2-gt-Install"><a href="#2-gt-Install" class="headerlink" title="2&gt; Install"></a>2&gt; Install</h2><p>approch1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git</div></pre></td></tr></table></figure></p>
+<p>approch2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="comment"># download the source code package</span></div><div class="line">$ <span class="comment"># uncompress the source code package</span></div><div class="line">$ ./config</div><div class="line">$ make</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure></p>
+<h2 id="3-gt-Configure"><a href="#3-gt-Configure" class="headerlink" title="3&gt; Configure"></a>3&gt; Configure</h2><h3 id="3-1-gt-global-level-“-gitconfig”-is-the-config-file-for-current-user"><a href="#3-1-gt-global-level-“-gitconfig”-is-the-config-file-for-current-user" class="headerlink" title="3.1&gt; global-level: “~/.gitconfig” is the config file for current user"></a>3.1&gt; global-level: “~/.gitconfig” is the config file for current user</h3><p>way1: directly edit “~/.gitconfig”<br>way2: use the command “git config –global <item> “blabla…””<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git config --global color.ui <span class="literal">true</span></div><div class="line">$ git config --global user.name <span class="string">"Your Name"</span></div><div class="line">$ git config --global user.email <span class="string">"email@example.com"</span></div></pre></td></tr></table></figure></item></p>
+<p>Hightlight: frequently-used allas<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.last <span class="string">'log -1'</span>	<span class="comment"># last = log -1	</span></div><div class="line">$ git config --global alias.st status		<span class="comment"># st   = status</span></div><div class="line">$ git config --global alias.co checkout		<span class="comment"># co   = checkout</span></div><div class="line">$ git config --global alias.ci commit		<span class="comment"># ci   = commit</span></div><div class="line">$ git config --global alias.br branch		<span class="comment"># br   = branch</span></div><div class="line">$ git config --global alias.unstage <span class="string">'reset HEAD'</span> <span class="comment"># unstage = reset HEAD</span></div><div class="line">$ git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-2-gt-project-level-“-…-git-config”-is-the-config-file-for-current-project"><a href="#3-2-gt-project-level-“-…-git-config”-is-the-config-file-for-current-project" class="headerlink" title="3.2&gt; project-level: “~/…//.git/config” is the config file for current project"></a>3.2&gt; project-level: “~/…/<project>/.git/config” is the config file for current project</project></h3><p>way1: directly edit “~/…/<project>/.git/config”<br>way2: use the command “git config <item> “blabla…””</item></project></p>
+<h2 id="4-gt-Prepare-to-work-locally"><a href="#4-gt-Prepare-to-work-locally" class="headerlink" title="4&gt; Prepare to work locally"></a>4&gt; Prepare to work locally</h2><h3 id="4-1-gt-create-one-‘repository’"><a href="#4-1-gt-create-one-‘repository’" class="headerlink" title="4.1&gt; create one ‘repository’"></a>4.1&gt; create one ‘repository’</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir learngit</div><div class="line">$ <span class="built_in">cd</span> learngit</div><div class="line">$ git init</div></pre></td></tr></table></figure>
+<h3 id="4-2-gt-filter-files-to-be-ignored"><a href="#4-2-gt-filter-files-to-be-ignored" class="headerlink" title="4.2&gt; filter files to be ignored"></a>4.2&gt; filter files to be ignored</h3><p>Then “.git” folder is created (to check with “ls -ah”) and all files in this directory will be managed by ‘git’ by default.<br>If you don’t want some special files to be treated as a part of this ‘repository’, please explicitly tell the ‘git’ by the file ‘.gitignore’, it can be edited like this way:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> *.doc &gt;&gt; .gitignore</div></pre></td></tr></table></figure></p>
+<p>When you cannot make sure whether a file is being managed by ‘git’ or not:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git check-ignore -v &lt;filename&gt; <span class="comment"># to check the conflict</span></div></pre></td></tr></table></figure></p>
+<h2 id="5-gt-Understand-the-operational-principle-“tracking-changes”"><a href="#5-gt-Understand-the-operational-principle-“tracking-changes”" class="headerlink" title="5&gt; Understand the operational principle “tracking changes”"></a>5&gt; Understand the operational principle “tracking changes”</h2><h3 id="5-1-gt-create-the-original-version"><a href="#5-1-gt-create-the-original-version" class="headerlink" title="5.1&gt; create the original version"></a>5.1&gt; create the original version</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> baseline &gt; readme.txt</div><div class="line">$ git add readme.txt</div><div class="line">$ git commit -m <span class="string">"create a readme file"</span></div></pre></td></tr></table></figure>
+<h3 id="5-2-gt-create-the-draft1-and-draft2-version"><a href="#5-2-gt-create-the-draft1-and-draft2-version" class="headerlink" title="5.2&gt; create the draft1 and draft2 version"></a>5.2&gt; create the draft1 and draft2 version</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> draft1 &gt;&gt; readme.txt</div><div class="line">$ git status</div><div class="line">$ git add readme.txt</div><div class="line">$ git status</div><div class="line">$ <span class="built_in">echo</span> draft2 &gt;&gt; readme.txt</div><div class="line">$ git status</div><div class="line">$ git commit -m <span class="string">"draft1"</span></div><div class="line">$ git status</div><div class="line">$ git diff HEAD -- readme.txt <span class="comment"># compare "working" and "repo"</span></div><div class="line">$ git add readme.txt</div><div class="line">$ git status</div><div class="line">$ git commit -m <span class="string">"draft2"</span></div><div class="line">$ git status</div></pre></td></tr></table></figure>
+<h3 id="5-3-gt-list-all-history-versions"><a href="#5-3-gt-list-all-history-versions" class="headerlink" title="5.3&gt; list all history versions"></a>5.3&gt; list all history versions</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span> --pretty=oneline</div></pre></td></tr></table></figure>
+<h3 id="5-4-gt-revert-back-to-one-previous-version"><a href="#5-4-gt-revert-back-to-one-previous-version" class="headerlink" title="5.4&gt; revert/back to one previous version"></a>5.4&gt; revert/back to one previous version</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard HEAD^</div><div class="line">$ <span class="comment">#git reset --hard HEAD^^</span></div><div class="line">$ <span class="comment">#git reset --hard HEAD~100</span></div><div class="line">$ git <span class="built_in">log</span> --pretty=oneline</div><div class="line">$ git reflog <span class="comment">#-- operation history</span></div><div class="line">$ git reset --hard &lt;commit_id&gt;</div></pre></td></tr></table></figure>
+<h3 id="5-5-gt-sync-“working-area”-per-“current-repo”"><a href="#5-5-gt-sync-“working-area”-per-“current-repo”" class="headerlink" title="5.5&gt; sync “working area” per “current repo”"></a>5.5&gt; sync “working area” per “current repo”</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> stupid &gt;&gt; readme.txt</div><div class="line">$ git add readme.txt</div><div class="line">$ git checkout -- readme.txt</div><div class="line">$ git diff HEAD -- readme.txt</div><div class="line">$ git status</div></pre></td></tr></table></figure>
+<h3 id="5-6-gt-unstage-sync-“stage-buffer”-per-“current-repo”"><a href="#5-6-gt-unstage-sync-“stage-buffer”-per-“current-repo”" class="headerlink" title="5.6&gt; unstage: sync “stage buffer” per “current repo”"></a>5.6&gt; unstage: sync “stage buffer” per “current repo”</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git reset HEAD readme.txt</div><div class="line">$ git status</div></pre></td></tr></table></figure>
+<h3 id="5-7-gt-delete-one-file"><a href="#5-7-gt-delete-one-file" class="headerlink" title="5.7&gt; delete one file"></a>5.7&gt; delete one file</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ touch test.c</div><div class="line">$ git status</div><div class="line">$ git add test.c</div><div class="line">$ git commit -m <span class="string">"add test.c"</span></div><div class="line">$ rm test.c</div><div class="line">$ git status</div><div class="line">$ git rm test.c</div><div class="line">$ git commit -m <span class="string">"remove test.c"</span></div></pre></td></tr></table></figure>
+<h2 id="6-gt-Prepare-to-work-remotely-demo-with-GitHub-website"><a href="#6-gt-Prepare-to-work-remotely-demo-with-GitHub-website" class="headerlink" title="6&gt; Prepare to work remotely (demo with GitHub website)"></a>6&gt; Prepare to work remotely (demo with GitHub website)</h2><h3 id="6-1-gt-login-create-your-GitHub-account"><a href="#6-1-gt-login-create-your-GitHub-account" class="headerlink" title="6.1&gt; login/create your GitHub account."></a>6.1&gt; login/create your <a href="https://github.com/" target="_blank" rel="external">GitHub</a> account.</h3><h3 id="6-2-gt-create-your-ssh-rsa-id-with-your-email-used-in-GitHub"><a href="#6-2-gt-create-your-ssh-rsa-id-with-your-email-used-in-GitHub" class="headerlink" title="6.2&gt; create your ssh_rsa_id with your email used in GitHub."></a>6.2&gt; create your ssh_rsa_id with your email used in GitHub.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></div><div class="line">$ cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>copy the console output to be pasted in GitHub website.</p>
+<h3 id="6-3-gt-let-your-GitHub-website-know-this-public-key"><a href="#6-3-gt-let-your-GitHub-website-know-this-public-key" class="headerlink" title="6.3&gt; let your GitHub website know this public key"></a>6.3&gt; let your <a href="https://github.com/" target="_blank" rel="external">GitHub</a> website know this public key</h3><p>“Settings”-&gt;”SSH and GPG keys”-&gt;”New SSH key”, paste in “Key”, click “Add SSH key” to finish.</p>
+<h3 id="6-4-gt-create-the-first-repository-in-your-GitHub-website"><a href="#6-4-gt-create-the-first-repository-in-your-GitHub-website" class="headerlink" title="6.4&gt; create the first repository in your GitHub website"></a>6.4&gt; create the first repository in your <a href="https://github.com/" target="_blank" rel="external">GitHub</a> website</h3><p>“New repository”, fill “name/description/public”, click “Create”.</p>
+<h3 id="6-5-gt-create-one-link-to-the-remote-repo"><a href="#6-5-gt-create-one-link-to-the-remote-repo" class="headerlink" title="6.5&gt; create one link to the remote repo"></a>6.5&gt; create one link to the remote repo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/learngit</div><div class="line">$ git remote -v <span class="comment"># show info(link) about the remote repo</span></div><div class="line">$ git remote add origin git@github.com:&lt;account&gt;/learngit.git</div><div class="line">$ <span class="comment">#git remote add origin git@&lt;server-name&gt;:&lt;path&gt;/&lt;repo-name&gt;.git</span></div></pre></td></tr></table></figure>
+<h3 id="6-6-gt-switch-to-another-remote-server"><a href="#6-6-gt-switch-to-another-remote-server" class="headerlink" title="6.6&gt; switch to another remote server"></a>6.6&gt; switch to another remote server</h3><p>“git remote -v” lists all flags which point to the remote git repository.<br>The following 1&gt; sync current branch with the previous remote repository; 2&gt; create a new flag pointing to a new repository; 3&gt; upload files and links (the local ‘master’ reference) to that new repository.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git pull -r</div><div class="line">$ git remote <span class="built_in">set</span>-url lgerrit ssh://jacky@192.168.1.3:29418/iboot.git</div><div class="line">$ git push -u lgerrit master</div></pre></td></tr></table></figure></p>
+<p>The following 1&gt; clone everything(including all branches and tags) from a remote repository; 2&gt; create a new flag pointing to another new repository; 3&gt; upload everything to that new repository.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> --mirror git@github.com:jacky168wang/iboot.git</div><div class="line">$ git remote <span class="built_in">set</span>-url origin ssh://admin@192.168.1.3:29418/iboot.git</div><div class="line">$ git push --mirror</div></pre></td></tr></table></figure></p>
+<h2 id="7-gt-Understand-the-distributed-version-control-system"><a href="#7-gt-Understand-the-distributed-version-control-system" class="headerlink" title="7&gt; Understand the distributed version control system"></a>7&gt; Understand the distributed version control system</h2><h3 id="7-1-gt-upload-files-AND-link-local-‘master’-to-remote-‘master’"><a href="#7-1-gt-upload-files-AND-link-local-‘master’-to-remote-‘master’" class="headerlink" title="7.1&gt; upload files AND link local ‘master’ to remote ‘master’"></a>7.1&gt; upload files AND link local ‘master’ to remote ‘master’</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push -u origin master <span class="comment"># only 1st time need '-u'</span></div></pre></td></tr></table></figure>
+<h3 id="7-2-gt-clone-the-repo-and-files-from-the-remote"><a href="#7-2-gt-clone-the-repo-and-files-from-the-remote" class="headerlink" title="7.2&gt; clone the repo (and files) from the remote"></a>7.2&gt; clone the repo (and files) from the remote</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~</div><div class="line">$ git <span class="built_in">clone</span> git@github.com:&lt;account&gt;/learngit.git</div><div class="line">$ <span class="comment">#git clone git@&lt;server-name&gt;:&lt;path&gt;/&lt;repo-name&gt;.git</span></div></pre></td></tr></table></figure>
+<h3 id="7-3-gt-create-a-new-branch-quickly"><a href="#7-3-gt-create-a-new-branch-quickly" class="headerlink" title="7.3&gt; create a new branch quickly"></a>7.3&gt; create a new branch quickly</h3><p>before branch : p_HEAD -&gt; p_master -&gt; “repo_chain”<br>after  branch : new p_dev -&gt; “repo_chain”, p_HEAD = p_dev<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev <span class="comment"># equal 'git branch dev' + 'git checkout dev'</span></div><div class="line">$ git branch <span class="comment"># list all branches</span></div></pre></td></tr></table></figure></p>
+<p>branch advance: new one node per each ‘commit’, p_dev++<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> BRANCH &gt;&gt; readme.txt</div><div class="line">$ git add readme.txt</div><div class="line">$ git commit -m <span class="string">"new branch"</span></div></pre></td></tr></table></figure></p>
+<h3 id="7-4-gt-merge"><a href="#7-4-gt-merge" class="headerlink" title="7.4&gt; merge"></a>7.4&gt; merge</h3><p>Compare ‘end’ node of current branch with the other, if no conflict, p_master -&gt; the ‘end’ node of p_dev; else, new one node with your changes, p_master -&gt; it.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ cat readme.txt</div><div class="line">$ git merge dev</div><div class="line">$ cat readme.txt <span class="comment"># if conflict, manually modify it, then git add &amp; commit</span></div></pre></td></tr></table></figure></p>
+<h3 id="7-5-gt-picture-details-of-the-roadmap"><a href="#7-5-gt-picture-details-of-the-roadmap" class="headerlink" title="7.5&gt; picture details of the roadmap"></a>7.5&gt; picture details of the roadmap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</div></pre></td></tr></table></figure>
+<h3 id="7-6-gt-remove-branch-delete-p-dev"><a href="#7-6-gt-remove-branch-delete-p-dev" class="headerlink" title="7.6&gt; remove branch: delete p_dev"></a>7.6&gt; remove branch: delete p_dev</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -d dev</div><div class="line">$ git branch</div></pre></td></tr></table></figure>
+<h2 id="8-gt-Branches-in-generial-development-team"><a href="#8-gt-Branches-in-generial-development-team" class="headerlink" title="8&gt; Branches in generial development team"></a>8&gt; Branches in generial development team</h2><h3 id="8-1-gt-bug-branch-and-save-snapshot-‘working-area’"><a href="#8-1-gt-bug-branch-and-save-snapshot-‘working-area’" class="headerlink" title="8.1&gt; bug branch and save/snapshot ‘working area’"></a>8.1&gt; bug branch and save/snapshot ‘working area’</h3><p>One bug is reported in your last commit. you’re asked to fix it ASAP, but current ongoing change has not been finished.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git stash</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git checkout -b bug238 <span class="comment"># new a branch working on to fix this bug</span></div><div class="line">Then <span class="keyword">do</span> changes and tests</div><div class="line">$ <span class="comment">#git add readme.txt</span></div><div class="line">$ <span class="comment">#git commit -m "get bug238 fixed"</span></div><div class="line">$ git checkout master</div><div class="line">$ git merge --no-ff -m <span class="string">"merged bug238 fix"</span> bug238</div></pre></td></tr></table></figure>
+<p>Finally recover previous ongoing change and drop the buffer<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git checkout dev</div><div class="line">$ git stash list <span class="comment"># show all buffered snapshots</span></div><div class="line">$ git stash pop <span class="comment"># recover previous ongoing change and drop the buffer</span></div><div class="line">$ <span class="comment">#git stash apply stash@&#123;&lt;index&gt;&#125; # pick-up one of snapshots</span></div></pre></td></tr></table></figure></p>
+<h3 id="8-2-gt-abandon-one-trial-branch"><a href="#8-2-gt-abandon-one-trial-branch" class="headerlink" title="8.2&gt; abandon one trial branch"></a>8.2&gt; abandon one trial branch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b trial</div><div class="line">$ touch trial.c</div><div class="line">$ git add trial.c</div><div class="line">$ git commit -m <span class="string">"new branch for trial"</span></div><div class="line">$ git checkout dev</div><div class="line">$ git branch -D trial <span class="comment"># removing un-merged branch with '-d' will fail</span></div></pre></td></tr></table></figure>
+<h3 id="8-3-gt-co-work-in-a-team"><a href="#8-3-gt-co-work-in-a-team" class="headerlink" title="8.3&gt;  co-work in a team"></a>8.3&gt;  co-work in a team</h3><p>  remote_b_master:           m1 ——– m2 —- m3<br>                 :           |           |       |<br> remote_b_develop: d1 —— d2 — d3 - d4 —- d5 — d6<br>                 :  |\       /|     /    /|       |<br>   user_b_develop:  | u1 - u2 / – u3 - u4| u5 u6 | u7 – u8<br>                 :   \       /            /       /<br> worker_b_develop:    w1 w2 w3 w4 - w5 - w6 w7 - w8 - w9 - w10</p>
+<h3 id="8-4-gt-working-flow"><a href="#8-4-gt-working-flow" class="headerlink" title="8.4&gt; working flow"></a>8.4&gt; working flow</h3><p>  try “git push origin branch-name” push your changes;<br>  if fail(remote_branch newer than your)<br>  try to merge with “git pull”;<br>  if “no tracking info”<br>    “git branch –set-upstream branch-name origin/branch-name”;<br>    if conflict<br>      resolve then commit (locally);<br>    if no conflict or after resolved<br>      do “git push origin branch-name” again;</p>
+<h2 id="9-gt-Tag-to-flag-the-significant-version"><a href="#9-gt-Tag-to-flag-the-significant-version" class="headerlink" title="9&gt; Tag to flag the significant version"></a>9&gt; Tag to flag the significant version</h2><p>‘tag’ means a snapshot for the repo at one moment. It use a readable name to flag/point-to one ‘commit’. It cannot move so different from ‘branch’.</p>
+<h3 id="9-1-gt-create-one-local-tag"><a href="#9-1-gt-create-one-local-tag" class="headerlink" title="9.1&gt; create one (local) tag"></a>9.1&gt; create one (local) tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git tag v1.0 <span class="comment"># current reference/master</span></div><div class="line">$ git <span class="built_in">log</span> --pretty=oneline --abbrev-commit</div><div class="line">$ git tag v0.9 &lt;commit_id&gt;</div><div class="line">$ git tag -a v0.1 -m <span class="string">"version 0.1 released"</span> &lt;commit_id&gt;</div></pre></td></tr></table></figure>
+<h3 id="9-2-gt-create-one-local-tag-with-anti-fogery-signed-by-PGP-private-key"><a href="#9-2-gt-create-one-local-tag-with-anti-fogery-signed-by-PGP-private-key" class="headerlink" title="9.2&gt; create one (local) tag with anti-fogery signed by PGP private key"></a>9.2&gt; create one (local) tag with anti-fogery signed by PGP private key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -s v0.2 -m <span class="string">"signed version 0.2 released"</span> &lt;commit_id&gt;</div></pre></td></tr></table></figure>
+<h3 id="9-3-gt-upload-one-local-tag-to-the-remote"><a href="#9-3-gt-upload-one-local-tag-to-the-remote" class="headerlink" title="9.3&gt; upload one (local) tag to the remote"></a>9.3&gt; upload one (local) tag to the remote</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git push origin &lt;tagname&gt;</div><div class="line">$ git push origin --tags</div></pre></td></tr></table></figure>
+<h3 id="9-3-gt-show-check-show-details-about-one-local-tag"><a href="#9-3-gt-show-check-show-details-about-one-local-tag" class="headerlink" title="9.3&gt; show/check show details about one (local) tag"></a>9.3&gt; show/check show details about one (local) tag</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag</div><div class="line">$ git show &lt;tagname&gt;</div></pre></td></tr></table></figure>
+<h3 id="9-4-gt-delete-one-tag-and-sync-with-the-remote"><a href="#9-4-gt-delete-one-tag-and-sync-with-the-remote" class="headerlink" title="9.4&gt; delete one tag and sync with the remote"></a>9.4&gt; delete one tag and sync with the remote</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag -d &lt;tagname&gt;</div><div class="line">$ git push origin :refs/tags/&lt;tagname&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://192.168.1.3/2017/06/25/git-tutor/" data-id="cj4chblqd0001acxtrym0o5r1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/25/gerrit-tutor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Gerrit tutorial
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/linux-daemon/">linux-daemon</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/gerrit-mngt/">Gerrit mangement</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/gerrit-tutor/">Gerrit tutorial</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/25/git-tutor/">Git tutorial</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 JackyWang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
